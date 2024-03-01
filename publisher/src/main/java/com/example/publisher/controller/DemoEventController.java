@@ -1,4 +1,4 @@
-package com.example.publisher.event;
+package com.example.publisher.controller;
 
 import com.example.publisher.config.RabbitMQConfig;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
