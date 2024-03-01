@@ -1,4 +1,4 @@
-package com.example.DesafioBCI.entity;
+package com.example.latam.entity;
 
 import java.util.UUID;
 
@@ -15,19 +15,14 @@ import lombok.ToString;
 @Getter
 @Setter
 @Entity
-public class Telefono {
+public class Mensaje {
 	
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 	
     @NotBlank
-    private String number;
+    private String texto;
 
-    @NotBlank
-    private String cityCode;
-
-    @NotBlank
-    private String countryCode;
 }
 

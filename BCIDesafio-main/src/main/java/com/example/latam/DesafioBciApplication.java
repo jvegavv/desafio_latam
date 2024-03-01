@@ -1,4 +1,4 @@
-package com.example.DesafioBCI;
+package com.example.latam;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
