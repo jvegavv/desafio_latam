@@ -24,6 +24,16 @@ on:
 #  ENVIRONMENT: production
 
 jobs:
+
+  test-app:
+    name: Test app
+    runs-on: ubuntu-latest
+    needs: build-app
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test
+        run: mvn test
+        
   deploy:
     name: Deploying to Google Cloud
     runs-on: ubuntu-latest
