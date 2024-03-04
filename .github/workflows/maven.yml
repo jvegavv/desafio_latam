@@ -40,6 +40,8 @@ jobs:
         version: v1
         project_id: ${{ secrets.GCP_PROJECT }}
         credentials: ${{ secrets.GCP_CREDENTIALS }}
+    - name: Test
+      run: curl "${{ steps.deploy.outputs.url }}"
 
  # test-app:
  #   name: Test app
