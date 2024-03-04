@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class TemaController {
 
     Logger logger = LoggerFactory.getLogger(TemaController.class);
+    private final String version = "1.0";
 
     @Autowired
     private TemaService temaService;
@@ -36,7 +37,7 @@ public class TemaController {
     public ResponseEntity<?> crearTema(@RequestBody Tema tema) {
         try {
            
-            logger.info("Tema a crear "+tema);
+            logger.info("["+version+"] Tema a crear "+tema);
             temaService.save(tema);
 
             return ResponseEntity.status(HttpStatus.CREATED).body(null);
@@ -50,7 +51,7 @@ public class TemaController {
     public ResponseEntity<?> obtenerMensajes(@PathVariable Integer id) {
         try {
            
-            logger.info("Mensajes del tema a obtener "+id);
+            logger.info("["+version+"] Mensajes del tema a obtener "+id);
             Optional<Tema> tema = temaService.get(id);
 
             if (tema.isPresent())
