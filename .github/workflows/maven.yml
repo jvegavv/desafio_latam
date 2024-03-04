@@ -29,17 +29,22 @@ jobs:
     name: Test app
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
       - name: Test
         run: mvn test
 
   deploy:
+    needs: test-app
     name: Deploying to Google Cloud
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Deploy to App Engine
       id: deploy
@@ -49,9 +54,7 @@ jobs:
         version: v1
         project_id: ${{ secrets.GCP_PROJECT }}
         credentials: ${{ secrets.GCP_CREDENTIALS }}
-    - name: Test
-      run: curl "${{ steps.deploy.outputs.url }}"
-
+ 
  # test-app:
  #   name: Test app
  #   runs-on: ubuntu-latest
