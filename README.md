@@ -263,10 +263,10 @@ Parte 5: Alertas y SRE (Opcional)
     **GroupStandbyInstances**: Si el numero supera el 10%, disparar una alerta.<br>
     **GroupStandbyInstances:** Apenas se termine una, disparar una alerta.<br>
 
-    GroupMinSize, por un tema de tiempo de respuesta de la aplicacion este numero no puede ser menor.<br><br>
-    GroupMaxSize, por un tema de costos de la nube este numero no puede ser mayor.<br><br>
-    GroupStandbyInstances, si tenemos mas del 10% que se ejecuten y no esten en servicio puede ser empeorar los tiempos de respuestas del sistema.<br><br>
-    GroupStandbyInstances, apenas se termine una maquina debemos saber cual fue y por que razon esta en este estado.<br><br>
+    **GroupMinSize**, por un tema de tiempo de respuesta de la aplicacion este numero no puede ser menor.<br>
+    **GroupMaxSize**, por un tema de costos de la nube este numero no puede ser mayor.<br>
+    **GroupStandbyInstances**, si tenemos mas del 10% que se ejecuten y no esten en servicio puede ser empeorar los tiempos de respuestas del sistema.<br>
+    **GroupStandbyInstances**, apenas se termine una maquina debemos saber cual fue y por que razon esta en este estado.<br>
 
 2. Define métricas SLIs para los servicios del sistema y un SLO para cada uno de los SLIs. Argumenta por qué escogiste esos SLIs/SLOs y por qué desechaste otras métricas para utilizarlas dentro de la definición de SLIs.
 
