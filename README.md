@@ -4,20 +4,16 @@ Desafío Técnico DevSecOps/SRE
 Instrucciones previas
 ---------------	
 1. Utiliza un repositorio público de git para resolver el desafío
-- https://github.com/jvegavv/desafio_latam
-2. Utiliza una rama master y otra develop al resolver el problema. Opcionalmente,
-utilizar alguna práctica de desarrollo de GitFlow.
+    - https://github.com/jvegavv/desafio_latam
+2. Utiliza una rama master y otra develop al resolver el problema
+    - Se utiliza gitflow utilizacion rama **master** (principal), **develop** (base para features) y las ramas **feature** para los distintos desarrollos 
 3. En el repositorio deben estar todos los archivos utilizados para la resolución del
 desafío.
-4. Ten en cuenta que nuestro lenguaje preferido es Python. De todas formas, usa el
-que más te acomode.
-5. Escribe un README.md para responder cada punto del desafío. Escribe supuestos
-y cualquier comentario que nos ayude a entender tu solución y tu forma de resolver
-el problema.
-6. Utiliza cualquier buena práctica que consideres en el repositorio, código o flujo de
-desarrollo para demostrar tu conocimiento.
-
-
+    - **.github/worflow**: Contiene el CI/CD.
+    - **Iac**: Contiene los terraform para el despliegue de la infraestructura. 
+    - **src**: Contiene el codigo de la aplicacion en **JAVA17**, se utiliza framework **SpringBoot**.
+4. Ten en cuenta que nuestro lenguaje preferido es Python.
+    - **JAVA17**.
 
 
 Parte 1:Infraestructura e IaC
