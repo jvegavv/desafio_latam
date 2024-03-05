@@ -4,6 +4,7 @@ Desafío Técnico DevSecOps/SRE
 Instrucciones previas
 ---------------	
 1. Utiliza un repositorio público de git para resolver el desafío
+- https://github.com/jvegavv/desafio_latam
 2. Utiliza una rama master y otra develop al resolver el problema. Opcionalmente,
 utilizar alguna práctica de desarrollo de GitFlow.
 3. En el repositorio deben estar todos los archivos utilizados para la resolución del
