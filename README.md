@@ -26,10 +26,10 @@ Parte 1:Infraestructura e IaC
         <li> PUT : https://instant-pivot-410117.uc.r.appspot.com/api/tema/ (Actualizar un tema)</li>
         <li> GET : https://instant-pivot-410117.uc.r.appspot.com/api/tema/ (Obtener los mensajes de un tema)</li>
     </ul>
-b. Base de datos para el almacenamiento enfocado en analítica de datos
+    b. Base de datos para el almacenamiento enfocado en analítica de datos
     - Se utiliza una Base de Datos en GCP bajo el servicio Sql Cloud, nombre **database_latam**, motor Mysql 8.
 
-c. Endpoint HTTP para servir parte de los datos almacenados
+    c. Endpoint HTTP para servir parte de los datos almacenados
     <ul>
         <li> POST : https://instant-pivot-410117.uc.r.appspot.com/api/tema/ (Crear un tema)</li>
         <li> PUT : https://instant-pivot-410117.uc.r.appspot.com/api/tema/ (Actualizar un tema)</li>
