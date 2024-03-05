@@ -12,18 +12,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.latam.entity.Mensaje;
 import com.example.latam.entity.Tema;
 import com.example.latam.service.TemaService;
-
-import jakarta.validation.constraints.Null;
-
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/api/mensaje")
+@RequestMapping("/api/tema")
 public class TemaController {
 
     Logger logger = LoggerFactory.getLogger(TemaController.class);
@@ -38,16 +37,54 @@ public class TemaController {
         try {
            
             logger.info("["+version+"] Tema a crear "+tema);
-            temaService.save(tema);
+            tema.setId(null);
+            
+            Optional<Tema> temaOptional = Optional.of(temaService.save(tema));
 
-            return ResponseEntity.status(HttpStatus.CREATED).body(null);
+            if (temaOptional.isPresent())
+                return ResponseEntity.status(HttpStatus.CREATED).body(Collections.singletonMap("Id del tema creado", temaOptional.get().getId()));
+            else
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(Collections.singletonMap("mensaje", "ERROR al crear el tema "+ tema.getNombre())); 
+
 
         } catch (Exception e) {
         	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Collections.singletonMap("mensaje", e.getMessage()));
         }
     }
 
-    @GetMapping("/tema/{id}")
+
+    @PutMapping
+    public ResponseEntity<?> actualizarTema(@RequestBody Tema tema) {
+        try {
+           
+            logger.info("["+version+"] Tema a actualizar "+tema);
+
+            Optional<Tema> temaOptional = temaService.get(tema.getId());
+           
+            logger.info("["+version+"] Tema a obtenido BD "+temaOptional.get());
+
+            if (temaOptional.isPresent()){
+
+                temaOptional = Optional.of(temaService.save(tema));
+
+                if (temaOptional.isPresent())
+                    return ResponseEntity.status(HttpStatus.OK).body(Collections.singletonMap("Tema actualizado", temaOptional.get()));
+                else
+                    return ResponseEntity.status(HttpStatus.CONFLICT).body(Collections.singletonMap("mensaje", "ERROR al actualizar el tema "+ tema.getNombre())); 
+            
+        
+            }else{
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.singletonMap("mensaje", "Tema "+tema.getId()+" No existe"));
+
+            }    
+
+        } catch (Exception e) {
+        	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Collections.singletonMap("mensaje", e.getMessage()));
+        }
+    }
+
+
+    @GetMapping("/{id}")
     public ResponseEntity<?> obtenerMensajes(@PathVariable Integer id) {
         try {
            

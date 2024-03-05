@@ -20,7 +20,7 @@ public class TemaControllerTest {
     @Test
     public void function_revisa_base_de_datos() throws Exception{
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/mensaje/tema/-1")
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/tema/-1")
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isNotFound());
 
