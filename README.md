@@ -174,4 +174,36 @@ Parte 2: Aplicaciones y flujo CI/CD
 
 4. Incluye un diagrama de arquitectura con la infraestructura del punto 1.1 y su interacción con los servicios/aplicaciones que demuestra el proceso end-to-end de ingesta hasta el consumo por la API HTTP.
 
+    Tecnologia Serverless utilizada: **App Engine GCP**
+
 ![Arquitectura PubSub Desafio Latam!](/images/Architecture_PubSub_Desafio%20Latam%20GCP.jpg "Arquitectura PubSub Desafio Latam")
+
+
+Parte 3: Pruebas de Integración y Puntos Críticos de Calidad
+---------------	
+
+1. Implementa en el flujo CI/CD en test de integración que verifique que la API efectivamente está exponiendo los datos de la base de datos. Argumenta.
+
+    EL CI/CD esta realizado en Github Actions, el primer job que se ejecuta en el CI es **Test APP**.
+
+    ![Prueba Integracion!](/images/prueba_integracion_git.png "Prueba Integracion")
+
+    El job ejecuta los test de la aplicacion en los cuales encontramos **function_revisa_base_de_datos** este realiza una consulta a la base de datos y si esta no se encuentra arriba o existen problemas de comunicacion, el job arroja error y no permite continuar con el job siguiente el cual realiza el deploy.
+
+2. Proponer otras pruebas de integración que validen que el sistema está funcionando correctamente y cómo se implementarían.
+
+    **Prueba de integracion 1**: permite verificar si se pueden realizar insert o update en la base de datos con el usuario actual (descartar que es readonly)
+    **Implementacion 1**: Crear una prueba que intente hacer un insert o un update en una tabla x de la base de datos.
+
+    **Prueba de integracion 2**: permite verificar si se crearon todas las tablas necesarias de la base de datos
+    **Implemetacion 2**: Por cada tabla crear una prueba que realice una consulta y que se realice correctamente aunque no traiga datos.
+
+3. Identificar posibles puntos críticos del sistema (a nivel de fallo o performance) diferentes al punto anterior y proponer formas de testearlos o medirlos (no implementar)
+
+    No se creo la base de datos antes de deployar la aplicacion, lo cual provocara que el sistema no se despliegue y menos levante.
+
+4. Proponer cómo robustecer técnicamente el sistema para compensar o solucionar dichos puntos críticos
+
+    En caso de detectarse que la base de datos no ha sido creada, en github actions deberian ejecutarse los terraforms para crearla y continuar con el deploy.
+
+    
