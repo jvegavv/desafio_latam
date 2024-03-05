@@ -256,7 +256,7 @@ Parte 4: Métricas y Monitoreo
 
 Parte 5: Alertas y SRE (Opcional)
 ---------------	
-1. Define específicamente qué reglas o umbrales utilizarías para las métricas propuestas, de manera que se disparan alertas al equipo al decaer la performance del sistema. Argumenta.
+**1. Define específicamente qué reglas o umbrales utilizarías para las métricas propuestas, de manera que se disparan alertas al equipo al decaer la performance del sistema. Argumenta.**
 
     **GroupMinSize**: En caso de que el numero de maquinas sea menor al GroupMinSize, disparar una alerta.<br>
     **GroupMaxSize**: En caso de que el numero de maquinas sea mayor al GroupMaxSize, disparar una alerta.<br>
@@ -268,7 +268,7 @@ Parte 5: Alertas y SRE (Opcional)
     GroupStandbyInstances, si tenemos mas del 10% que se ejecuten y no esten en servicio puede ser empeorar los tiempos de respuestas del sistema.<br><br>
     GroupStandbyInstances, apenas se termine una maquina debemos saber cual fue y por que razon esta en este estado.<br><br>
 
-2. Define métricas SLIs para los servicios del sistema y un SLO para cada uno de los SLIs. Argumenta por qué escogiste esos SLIs/SLOs y por qué desechaste otras métricas para utilizarlas dentro de la definición de SLIs.
+**2. Define métricas SLIs para los servicios del sistema y un SLO para cada uno de los SLIs. Argumenta por qué escogiste esos SLIs/SLOs y por qué desechaste otras métricas para utilizarlas dentro de la definición de SLIs.**
 
     #### Métricas SLIs
     **totalServiceFilter** : Una métrica que contabiliza el total de eventos. SLI:  99,95 %.<br>
