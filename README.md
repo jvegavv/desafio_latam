@@ -81,7 +81,7 @@ Parte 2: Aplicaciones y flujo CI/CD
 
 3. Agregar suscripción al sistema Pub/Sub con lógica para ingresar los datos recibidos a la base de datos. El objetivo es que los mensajes recibidos en un tópico se guarden en la base de datos. No requiere CI/CD.
 
-     #### Invocacion del Metodo POST
+     #### Invocacion del Metodo POST (request)
      Con este metodo puedes crear un tema y sus mensajes
 
         https://instant-pivot-410117.uc.r.appspot.com/api/tema/
@@ -103,18 +103,18 @@ Parte 2: Aplicaciones y flujo CI/CD
         ]
         }
 
-    #### Estado OK, tema creado.  
+    #### Estado OK, (response) 
     {
         "Id del tema creado": 302
     }
     _________________
 
-    #### Invocacion del Metodo GET
+    #### Invocacion del Metodo GET (request)
      Con este metodo puedes recibir los mensajes asociados a un topico o tema.
 
         https://instant-pivot-410117.uc.r.appspot.com/api/tema/59
 
-    #### Estado OK, encontro mensajes del tema.
+    #### Estado OK, (response).
         [
             {
                 "id": 407,
@@ -127,17 +127,51 @@ Parte 2: Aplicaciones y flujo CI/CD
         ]
      _________________
    
+    #### Invocacion del Metodo PUT (request)
+     Con este metodo puedes actualizar el nombre del tema y los mensajes, debes incluir el id de los mensajes para que se actualicen, sino se insertaran como nuevos.
 
+        https://instant-pivot-410117.uc.r.appspot.com/api/tema/
     
+        BODY
 
-
-    #### Estado Error, el tema no existe.
         {
-            "mensaje": "Tema 59 No existe"
+            "nombre":"tema actualizado3",
+            "id": 206,
+            "mensajes":[
+                {
+                    "id": 352,
+                    "texto":"mensaje actualizado 1"
+
+                },
+                {
+                    "id": 351, 
+                    "texto":"mensaje actualizado 2"
+                    
+                }
+
+            ]
+        }
+
+    #### Estado OK, (response) 
+
+        {
+        "Tema actualizado": {
+            "id": 206,
+            "nombre": "tema actualizado3",
+            "mensajes": [
+                {
+                    "id": 352,
+                    "texto": "mensaje actualizado 1"
+                },
+                {
+                    "id": 406,
+                    "texto": "mensaje actualizado 2"
+                }
+            ]
+        }
         }
 
 
+4. Incluye un diagrama de arquitectura con la infraestructura del punto 1.1 y su interacción con los servicios/aplicaciones que demuestra el proceso end-to-end de ingesta hasta el consumo por la API HTTP.
 
-4. Incluye un diagrama de arquitectura con la infraestructura del punto 1.1 y su
-interacción con los servicios/aplicaciones que demuestra el proceso end-to-end de
-ingesta hasta el consumo por la API HTTP
+![The San Juan Mountains are beautiful!](/images/Architecture_PubSub_Desafio%20Latam%20GCP.jpg "San Juan Mountains")
