@@ -271,9 +271,9 @@ Parte 5: Alertas y SRE (Opcional)
 2. Define métricas SLIs para los servicios del sistema y un SLO para cada uno de los SLIs. Argumenta por qué escogiste esos SLIs/SLOs y por qué desechaste otras métricas para utilizarlas dentro de la definición de SLIs.
 
     #### métricas SLIs
-    **totalServiceFilter** : Una métrica que contabiliza el total de eventos. SLI:  99,95 %
-    **badServiceFilter** : En una métrica que cuenta los eventos “incorrectos”.  SLI:  99,95 %
+    **totalServiceFilter** : Una métrica que contabiliza el total de eventos. SLI:  99,95 %.
+    **badServiceFilter** : En una métrica que cuenta los eventos “incorrectos”.  SLI:  99,95 %.
 
     Estas metricas son importantes para el negc¡ocio, para tener claridad la cantidad de eventos que sucenden en nuesto sistema y la cantidad de eventos incorrectos esto permite realizar mejoras tanto en el software como en el equipo.
-    
+
 
