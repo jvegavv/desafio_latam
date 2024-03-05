@@ -192,7 +192,7 @@ Parte 3: Pruebas de Integración y Puntos Críticos de Calidad
 
 2. Proponer otras pruebas de integración que validen que el sistema está funcionando correctamente y cómo se implementarían.
 
-    **Prueba de integracion 1**: permite verificar si se pueden realizar insert o update en la base de datos con el usuario actual (descartar que es readonly)
+    **Prueba de integracion 1**: permite verificar si se pueden realizar insert o update en la base de datos con el usuario actual (descartar que es readonly).
     **Implementacion 1**: Crear una prueba que intente hacer un insert o un update en una tabla x de la base de datos.
 
     **Prueba de integracion 2**: permite verificar si se crearon todas las tablas necesarias de la base de datos
@@ -206,4 +206,74 @@ Parte 3: Pruebas de Integración y Puntos Críticos de Calidad
 
     En caso de detectarse que la base de datos no ha sido creada, en github actions deberian ejecutarse los terraforms para crearla y continuar con el deploy.
 
+
+Parte 4: Métricas y Monitoreo
+---------------	
+
+1. Proponer 3 métricas (además de las básicas CPU/RAM/DISK USAGE) críticas para entender la salud y rendimiento del sistema end-to-end
+
+    <ul>
+        <li>network</li>
+        <li>sys load</li>
+        <li>filesystem</li>
+    </ul>
+
+2. Proponer una herramienta de visualización y describe textualmente qué métricas mostraría, y cómo esta información nos permitiría entender la salud del sistema para tomar decisiones estratégicas
+
+    **Grafana** destaca como una plataforma open source o de código abierto utilizada en las labores de análisis de datos y extracción de información y métricas.
+    Grafana al igual que otras plataformas nos muestra varias metricas, pero nos concetraremos en las 3 basicas:
     
+    <ul>
+        <li>cpu</li>
+        <li>ram</li>
+        <li>disk usage</li>
+    </ul>
+
+    Estas metricas nos permite identificar la cantidad de uso que tiene nuestro sistema en la maquina que se esta ejecutando, al sobrepasar los limites establecidos y ser informados por alertas, podemos realizar escalamientos o autoescalamientos verticales (añadir mas recursos) o horizontales (añadir mas maquinas), todo esto para complementar el original y asi no permitir que nuestra aplicacion se caiga por sobrecarga.
+
+
+3. Describe a grandes rasgos cómo sería la implementación de esta herramienta en la nube y cómo esta recolectaría las métricas del sistema.
+
+    Se puede instalar sencillamente en un cluster de Kubernetes por intermedio de sus yaml.
+
+    El operador Grafana importa los recursos de Grafana que se crean durante la instalación de la aplicación. El GrafanaDashboard explora los recursos en todos los espacios de nombres y ahora los recursos están visibles. Los paneles de instrumentos se organizan en carpetas que corresponden a espacios de nombres. Expanda una carpeta para ver los paneles de control.
+
+
+4. Describe cómo cambiará la visualización si escalamos la solución a 50 sistemas similares y qué otras métricas o formas de visualización nos permite desbloquear este escalamiento.
+
+    La visualizacion sera mas complicada por lo cual sera esencial el recurso técnico destinada a monitorearla.
+    Metricas:
+
+    **GroupMinSize**: El tamaño mínimo del grupo de Auto Scaling.
+    **GroupMaxSize**: El tamaño máximo del grupo de Auto Scaling.
+    **GroupStandbyInstances**: El número de instancias que tienen el estado Standby. Las instancias con este estado se siguen ejecutando pero no están en servicio.
+    **GroupTerminatingInstances:** El número de instancias que se están terminando. Esta métrica no incluye las instancias que están en servicio o pendientes.
+	
+
+5. Comenta qué dificultades o limitaciones podrían surgir a nivel de observabilidad de los sistemas de no abordarse correctamente el problema de escalabilidad.
+
+    Podriamos tener dificultades o limitaciones para establecer la cantidad de recursos que se estan creando para el uso de nuestras aplicaciones.
+
+Parte 5: Alertas y SRE (Opcional)
+---------------	
+1. Define específicamente qué reglas o umbrales utilizarías para las métricas propuestas, de manera que se disparan alertas al equipo al decaer la performance del sistema. Argumenta.
+
+    **GroupMinSize**: En caso de que el numero de maquinas sea menor al GroupMinSize, disparar una alerta.
+    **GroupMaxSize**: En caso de que el numero de maquinas sea mayor al GroupMaxSize, disparar una alerta.
+    **GroupStandbyInstances**: Si el numero supera el 10%, disparar una alerta.
+    **GroupStandbyInstances:** Apenas se termine una, disparar una alerta.
+
+    GroupMinSize, por un tema de tiempo de respuesta de la aplicacion este numero no puede ser menor.
+    GroupMaxSize, por un tema de costos de la nube este numero no puede ser mayor.
+    GroupStandbyInstances, si tenemos mas del 10% que se ejecuten y no esten en servicio puede ser empeorar los tiempos de respuestas del sistema.
+    GroupStandbyInstances, apenas se termine una maquina debemos saber cual fue y por que razon esta en este estado.
+
+2. Define métricas SLIs para los servicios del sistema y un SLO para cada uno de los SLIs. Argumenta por qué escogiste esos SLIs/SLOs y por qué desechaste otras métricas para utilizarlas dentro de la definición de SLIs.
+
+    #### métricas SLIs
+    **totalServiceFilter** : Una métrica que contabiliza el total de eventos. SLI:  99,95 %
+    **badServiceFilter** : En una métrica que cuenta los eventos “incorrectos”.  SLI:  99,95 %
+
+    Estas metricas son importantes para el negc¡ocio, para tener claridad la cantidad de eventos que sucenden en nuesto sistema y la cantidad de eventos incorrectos esto permite realizar mejoras tanto en el software como en el equipo.
+    
+
