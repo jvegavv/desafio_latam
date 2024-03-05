@@ -174,4 +174,4 @@ Parte 2: Aplicaciones y flujo CI/CD
 
 4. Incluye un diagrama de arquitectura con la infraestructura del punto 1.1 y su interacción con los servicios/aplicaciones que demuestra el proceso end-to-end de ingesta hasta el consumo por la API HTTP.
 
-![The San Juan Mountains are beautiful!](/images/Architecture_PubSub_Desafio%20Latam%20GCP.jpg "San Juan Mountains")
+![Arquitectura PubSub Desafio Latam!](/images/Architecture_PubSub_Desafio%20Latam%20GCP.jpg "Arquitectura PubSub Desafio Latam")
