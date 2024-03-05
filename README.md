@@ -258,15 +258,15 @@ Parte 5: Alertas y SRE (Opcional)
 ---------------	
 1. Define específicamente qué reglas o umbrales utilizarías para las métricas propuestas, de manera que se disparan alertas al equipo al decaer la performance del sistema. Argumenta.
 
-    **GroupMinSize**: En caso de que el numero de maquinas sea menor al GroupMinSize, disparar una alerta.
-    **GroupMaxSize**: En caso de que el numero de maquinas sea mayor al GroupMaxSize, disparar una alerta.
-    **GroupStandbyInstances**: Si el numero supera el 10%, disparar una alerta.
-    **GroupStandbyInstances:** Apenas se termine una, disparar una alerta.
+    **GroupMinSize**: En caso de que el numero de maquinas sea menor al GroupMinSize, disparar una alerta.<br>
+    **GroupMaxSize**: En caso de que el numero de maquinas sea mayor al GroupMaxSize, disparar una alerta.<br>
+    **GroupStandbyInstances**: Si el numero supera el 10%, disparar una alerta.<br>
+    **GroupStandbyInstances:** Apenas se termine una, disparar una alerta.<br>
 
-    GroupMinSize, por un tema de tiempo de respuesta de la aplicacion este numero no puede ser menor.
-    GroupMaxSize, por un tema de costos de la nube este numero no puede ser mayor.
-    GroupStandbyInstances, si tenemos mas del 10% que se ejecuten y no esten en servicio puede ser empeorar los tiempos de respuestas del sistema.
-    GroupStandbyInstances, apenas se termine una maquina debemos saber cual fue y por que razon esta en este estado.
+    GroupMinSize, por un tema de tiempo de respuesta de la aplicacion este numero no puede ser menor.<br>
+    GroupMaxSize, por un tema de costos de la nube este numero no puede ser mayor.<br>
+    GroupStandbyInstances, si tenemos mas del 10% que se ejecuten y no esten en servicio puede ser empeorar los tiempos de respuestas del sistema.<br>
+    GroupStandbyInstances, apenas se termine una maquina debemos saber cual fue y por que razon esta en este estado.<br>
 
 2. Define métricas SLIs para los servicios del sistema y un SLO para cada uno de los SLIs. Argumenta por qué escogiste esos SLIs/SLOs y por qué desechaste otras métricas para utilizarlas dentro de la definición de SLIs.
 
