@@ -192,10 +192,10 @@ Parte 3: Pruebas de Integración y Puntos Críticos de Calidad
 
 2. Proponer otras pruebas de integración que validen que el sistema está funcionando correctamente y cómo se implementarían.
 
-    **Prueba de integracion 1**: permite verificar si se pueden realizar insert o update en la base de datos con el usuario actual (descartar que es readonly).
+    **Prueba de integracion 1**: permite verificar si se pueden realizar insert o update en la base de datos con el usuario actual (descartar que es readonly).<br>
     **Implementacion 1**: Crear una prueba que intente hacer un insert o un update en una tabla x de la base de datos.
 
-    **Prueba de integracion 2**: permite verificar si se crearon todas las tablas necesarias de la base de datos
+    **Prueba de integracion 2**: permite verificar si se crearon todas las tablas necesarias de la base de datos.<br>
     **Implemetacion 2**: Por cada tabla crear una prueba que realice una consulta y que se realice correctamente aunque no traiga datos.
 
 3. Identificar posibles puntos críticos del sistema (a nivel de fallo o performance) diferentes al punto anterior y proponer formas de testearlos o medirlos (no implementar)
