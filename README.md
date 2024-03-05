@@ -20,16 +20,17 @@ Parte 1:Infraestructura e IaC
 ---------------	
 
 1. Identificar la infraestructura necesaria para ingestar, almacenar y exponer datos:
-    - Utilizar el esquema Pub/Sub: Se utiliza esquema pubsub, para esto se exponen 3 enpoints.
+    Utilizar el esquema Pub/Sub: Se utiliza esquema pubsub, para esto se exponen 3 enpoints.
     <ul>
         <li> POST : https://instant-pivot-410117.uc.r.appspot.com/api/tema/ (Crear un tema)</li>
         <li> PUT : https://instant-pivot-410117.uc.r.appspot.com/api/tema/ (Actualizar un tema)</li>
         <li> GET : https://instant-pivot-410117.uc.r.appspot.com/api/tema/ (Obtener los mensajes de un tema)</li>
     </ul>
+    </br>
     b. Base de datos para el almacenamiento enfocado en analítica de datos.</br>
     Se utiliza una Base de Datos en GCP bajo el servicio Sql Cloud, nombre **database_latam**, motor Mysql 8.
 
-    c. Endpoint HTTP para servir parte de los datos almacenados
+    c. Endpoint HTTP para servir parte de los datos almacenados.
     <ul>
         <li> POST : https://instant-pivot-410117.uc.r.appspot.com/api/tema/ (Crear un tema)</li>
         <li> PUT : https://instant-pivot-410117.uc.r.appspot.com/api/tema/ (Actualizar un tema)</li>
@@ -37,7 +38,7 @@ Parte 1:Infraestructura e IaC
     </ul>
 
 2. Deployar infraestructura mediante Terraform de la manera que más te acomode. Incluir código fuente Terraform.
-    - Se utiliza codigo terraform para crear la base de datos, unico componente que estariamos usando de infraestructura.
+    Se utiliza codigo terraform para crear la base de datos, unico componente que estariamos usando de infraestructura.
      <ul>
         <li>main.tf</li>
         <li>provider.tf</li>
