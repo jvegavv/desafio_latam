@@ -81,32 +81,9 @@ Parte 2: Aplicaciones y flujo CI/CD
 
 3. Agregar suscripción al sistema Pub/Sub con lógica para ingresar los datos recibidos a la base de datos. El objetivo es que los mensajes recibidos en un tópico se guarden en la base de datos. No requiere CI/CD.
 
-    Con este metodo puedes recibir los mensajes asociados a un topico o tema.
+     #### Invocacion del Metodo POST
+     Con este metodo puedes crear un tema y sus mensajes
 
-     #### Invocacion del Metodo GET
-        https://instant-pivot-410117.uc.r.appspot.com/api/tema/59
-
-    #### Estado OK, encontro mensajes del tema.
-        [
-            {
-                "id": 407,
-                "texto": "prueba1"
-            },
-            {
-                "id": 408,
-                "texto": "prueba2"
-            }
-        ]
-
-    #### Estado Error, el tema no existe.
-        {
-            "mensaje": "Tema 59 No existe"
-        }
-
-
-    Con este metodo puedes recibir los mensajes asociados a un topico o tema.
-
-    #### Invocacion del Metodo POST
         https://instant-pivot-410117.uc.r.appspot.com/api/tema/
 
         BODY
@@ -125,6 +102,33 @@ Parte 2: Aplicaciones y flujo CI/CD
 
         ]
         }
+
+    #### Estado OK, tema creado.  
+    {
+        "Id del tema creado": 302
+    }
+    _________________
+
+    #### Invocacion del Metodo GET
+     Con este metodo puedes recibir los mensajes asociados a un topico o tema.
+
+        https://instant-pivot-410117.uc.r.appspot.com/api/tema/59
+
+    #### Estado OK, encontro mensajes del tema.
+        [
+            {
+                "id": 407,
+                "texto": "prueba1"
+            },
+            {
+                "id": 408,
+                "texto": "prueba2"
+            }
+        ]
+     _________________
+   
+
+    
 
 
     #### Estado Error, el tema no existe.
