@@ -50,10 +50,10 @@ Parte 2: Aplicaciones y flujo CI/CD
 ---------------	
 1. API HTTP: Levantar un endpoint HTTP con lógica que lea datos de base de datos y los exponga al recibir una petición GET.<br>
 
-###Invocacion del Metodo
+### Invocacion del Metodo
 https://instant-pivot-410117.uc.r.appspot.com/api/tema/59
 
-###Estado OK, encontro mensajes del tema.
+### Estado OK, encontro mensajes del tema.
 [
     {
         "id": 407,
@@ -65,7 +65,7 @@ https://instant-pivot-410117.uc.r.appspot.com/api/tema/59
     }
 ]
 
-###Estado Error, el tema no existe.
+### Estado Error, el tema no existe.
 {
     "mensaje": "Tema 59 No existe"
 }
