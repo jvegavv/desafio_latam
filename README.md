@@ -54,7 +54,7 @@ Parte 2: Aplicaciones y flujo CI/CD
         https://instant-pivot-410117.uc.r.appspot.com/api/tema/59
 
     ### Estado OK, encontro mensajes del tema.
-        ``[
+        [
             {
                 "id": 407,
                 "texto": "prueba1"
@@ -63,18 +63,22 @@ Parte 2: Aplicaciones y flujo CI/CD
                 "id": 408,
                 "texto": "prueba2"
             }
-        ]``
+        ]
 
     ### Estado Error, el tema no existe.
-        ``{
+        {
             "mensaje": "Tema 59 No existe"
-        }``
+        }
 
 
 
 
-2. Deployar API HTTP en la nube mediante CI/CD a tu elección. Flujo CI/CD y
-ejecuciones deben estar visibles en el repositorio git.
+2. Deployar API HTTP en la nube mediante CI/CD a tu elección. Flujo CI/CD y ejecuciones deben estar visibles en el repositorio git.
+    Se utiliza Github actions
+
+        .github/workflows/deploy-app-engine-develop.yml - Deploy de los cambios en la rama develop, solo con push
+        .github/workflows/deploy-app-engine-master.yml - Deploy de los cambios en la rama master, solo con pull request.
+
 3. (Opcional) Ingesta: Agregar suscripción al sistema Pub/Sub con lógica para ingresar
 los datos recibidos a la base de datos. El objetivo es que los mensajes recibidos en
 un tópico se guarden en la base de datos. No requiere CI/CD.
